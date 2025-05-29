@@ -1,0 +1,15 @@
+/* header {
+    border: solid 5px rgb(0, 0, 0);
+  }
+
+  main {
+    border: solid 5px rgb(0, 0, 0);
+  }
+
+  footer {
+    border: solid 5px rgb(0, 0, 0);
+  } */
+
+#publicacoes{
+  overflow: hidden;
+}

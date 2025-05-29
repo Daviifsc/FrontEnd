@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+body{
+    font-family: "Roboto", sans-serif;
+}
+
+main{
+    height: 100vh;  
+    font-weight: 500;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 15%;
+    background-color: #31B349 /*#01501E*/;
+    color: #fff;
+}
+
+header > i{
+    margin: 0 5%;
+}
+
+.logo{
+    height: 130px;
+    margin: 0 0 0 10%;
+}
+
+.gerencia-vendedor{
+    margin: 20px 50px;
+}
+
+.info-vendedor {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 3%;
+}
+
+.foto-vendedor{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+}
+
+h2{
+    margin: 60px 0 0 10px;
+}
+
+
+ul{
+    display: flex;
+    
+    gap: 0 50px;
+    margin: 60px 0;
+    list-style: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.opcoes-vendedor{
+    display: flex;
+    justify-content: center;
+    gap: 20px 10px;
+    
+}
+
+button{
+    padding: 10px;
+    width: 150px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(49, 179, 73);
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: #26a33d;
+}
+
+.grid-container {
+    display: flex;
+   /* display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));*/
+    gap: 15px;
+    padding: 10px;
+    justify-content: center;
+    margin: 0 5%;
+    border-top: 1px solid #26a33d;
+}
+
+.grid-item {
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.grid-item img {
+   /* width: 100%;*/
+    height: 320px;
+    width: 300px;
+    display: block;
+}
+
+.caption {
+
+    position: absolute;
+    bottom: 0;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    padding: 5px;
+    width: 65%;
+    text-align: center;
+    font-size: 1rem;
+}
