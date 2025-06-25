@@ -26,16 +26,12 @@ header{
 }
 
 header > i{
-    margin: 0 3%;
+    margin: 0 5%;
 }
 
 .logo{
-    height: 5rem;
-    margin: 0 0 0 5%;
-}
-
-h1{
-    font-size: 1.5rem;
+    height: 130px;
+    margin: 0 0 0 10%;
 }
 
 .gerencia-vendedor{
@@ -49,14 +45,13 @@ h1{
 }
 
 .foto-vendedor{
-    height: 90px;
-    width: 90px;
+    height: 150px;
+    width: 150px;
     border-radius: 50%;
 }
 
 h2{
-    font-size: 1rem;
-    margin: 30px 0 0 10px;
+    margin: 60px 0 0 10px;
 }
 
 
@@ -74,7 +69,6 @@ ul{
     display: flex;
     justify-content: center;
     gap: 20px 10px;
-    margin: 20% 0 0 0;
     
 }
 
@@ -86,7 +80,7 @@ button{
     background-color: rgb(49, 179, 73);
     color: white;
     font-weight: bold;
-    font-size: 0.9rem;
+    font-size: 1rem;
     cursor: pointer;
 }
 
@@ -95,11 +89,14 @@ button:hover{
 }
 
 .grid-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 colunas padrão (mobile) */
-    gap: 16px;
-    padding: 0 16px;
-    margin-top: 1rem;
+    display: flex;
+   /* display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));*/
+    gap: 15px;
+    padding: 10px;
+    justify-content: center;
+    margin: 0 5%;
+    border-top: 1px solid #26a33d;
 }
 
 .grid-item {
@@ -108,16 +105,13 @@ button:hover{
     background: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-} 
+}
 
 .grid-item img {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 4 / 3; /* mantém proporção elegante */
+   /* width: 100%;*/
+    height: 320px;
+    width: 300px;
     display: block;
-    object-fit: cover;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .caption {
