@@ -4,20 +4,20 @@ const cachename = 'app-fc-v' + version;
 
 const arquivos = [
   './',
-  './index.html',
-  './main.js',
-  './service-worker.js',
-  './manifest.json',
-  './style.css',
-  './dados.json',
-  './IMAGENS/2149442335.jpg',
-  './IMAGENS/2149482552.jpg',
-  './IMAGENS/icon192.png',
-  './IMAGENS/icon512.png',
-  './IMAGENS/logo-3.png',
-  './IMAGENS/manoel-gomes.jpg',
-  './IMAGENS/organic-box.jpg',
-  './IMAGENS/procurar.png',
+  '../HTML/home.html',
+  'main.js',
+  'service-worker.js',
+  'manifest.json',
+  '../CSS/style.css',
+  'dados.json',
+  '../IMAGENS/2149442335.jpg',
+  '../IMAGENS/2149482552.jpg',
+  '../IMAGENS/icon192.png',
+  '../IMAGENS/icon512.png',
+  '../IMAGENS/logo-3.png',
+  '../IMAGENS/manoel-gomes.jpg',
+  '../IMAGENS/organic-box.jpg',
+  '../IMAGENS/procurar.png',
 ];
 
 
@@ -46,7 +46,7 @@ self.addEventListener('fetch', function (event) {
             return response;
           })
           .catch(function () {
-            return caches.match('./index.html');
+            return caches.match('../HTML/home.html');
           });
       }
     })

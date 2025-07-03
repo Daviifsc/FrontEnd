@@ -173,7 +173,7 @@ window.onload = carregarDados;
 
 //Registra o serviceWorker da aplicação para cache de recursos offline
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('./service-worker.js');
+  navigator.serviceWorker.register('service-worker.js');
 }
 
 

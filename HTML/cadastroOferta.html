@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Insira as informações da sua oferta</title>
-    <link rel="stylesheet" href="cadastroOferta.css">
+    <link rel="stylesheet" href="../CSS/cadastroOferta.css">
 </head>
 <body>
     <header class="cabecalho">
         <h1>Insira as informações da sua oferta</h1>
     </header>
-    <form class="formulario">
+    <form class="formulario" id="formCadastroOferta">
         <legend>Cadastrar Oferta</legend>
 
         <label class="label" for="titulo">Título:</label> <br>
@@ -30,6 +30,12 @@
 
         <label class="label lbAddProd" for="btnAddProduto">Adicionar Produto</label>
         <button type="button" class="button" id="btnAddProduto" onclick="adicionarProduto()"><i class="fa-solid fa-plus"></i></button>
+        <ol class="lista-produtos" id="lista-produtos">
+            
+        </ol>
+
+        <button type="submit" class="button" id="salvarPublicacao" onclick="salvarPublicacao">Salvar</button>
+        <button class="button" id="Publicar" onclick="publicar">Publicar</button>
     </form>
     
    <!-- Container onde será injetado o form do produto -->
@@ -38,6 +44,6 @@
     <!--  FontAwesome Script-->
     <script src="https://kit.fontawesome.com/f855660349.js" crossorigin="anonymous"></script>
 
-    <script src="cadastroOferta.js"></script>
+    <script src="../JS/cadastroOferta.js"></script>
 </body>
 </html>

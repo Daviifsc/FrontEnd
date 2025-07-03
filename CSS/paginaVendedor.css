@@ -9,6 +9,7 @@
 
 body{
     font-family: "Roboto", sans-serif;
+    width: 100vw;
 }
 
 main{
@@ -16,7 +17,7 @@ main{
     font-weight: 500;
 }
 
-header{
+.cabecalho{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -25,17 +26,17 @@ header{
     color: #fff;
 }
 
-header > i{
+.cabecalho > i{
     margin: 0 3%;
 }
 
 .logo{
-    height: 5rem;
+    height: 4rem;
     margin: 0 0 0 5%;
 }
 
 h1{
-    font-size: 1.5rem;
+    font-size: 1.2rem;   
 }
 
 .gerencia-vendedor{
@@ -45,18 +46,18 @@ h1{
 .info-vendedor {
     display: flex;
     justify-content: space-between;
-    margin: 0 3%;
 }
 
 .foto-vendedor{
-    height: 90px;
-    width: 90px;
+    height: 4rem;
+    width: 4rem;
     border-radius: 50%;
 }
 
 h2{
-    font-size: 1rem;
-    margin: 30px 0 0 10px;
+    font-size: 0.9rem;
+    margin: 5% 0 0 3%;
+    width: 10rem;
 }
 
 
@@ -86,7 +87,7 @@ button{
     background-color: rgb(49, 179, 73);
     color: white;
     font-weight: bold;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     cursor: pointer;
 }
 
@@ -94,31 +95,37 @@ button:hover{
     background-color: #26a33d;
 }
 
+.divisoria {
+  width: 100%;                 /* ocupa toda a largura do container pai */
+  max-width: 90vw;             /* garante que não ultrapasse a tela */
+  border-top: 1px solid #28a745;
+  margin: 0.5rem auto 0 auto;
+  
+}
+
 .grid-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 colunas padrão (mobile) */
-    gap: 16px;
-    padding: 0 16px;
-    margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* FORÇA 2 colunas */
+  gap: 1rem;
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
 .grid-item {
-    position: relative;
-    overflow: hidden;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-} 
+  aspect-ratio: 1 / 1; /* quadrado */
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
 
 .grid-item img {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 4 / 3; /* mantém proporção elegante */
-    display: block;
-    object-fit: cover;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
+
 
 .caption {
 
@@ -130,4 +137,32 @@ button:hover{
     width: 65%;
     text-align: center;
     font-size: 1rem;
+}
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  border-top: 1px solid #ccc;
+  display: flex;
+  justify-content: space-around;
+  padding: 8px 0;
+  z-index: 999;
+}
+
+.bottom-nav button {
+  background: none;
+  border: none;
+  font-size: 12px;
+  color: #2e7d32;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bottom-nav i {
+  font-size: 20px;
+  margin-bottom: 4px;
 }
