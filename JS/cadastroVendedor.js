@@ -1,4 +1,4 @@
-document.getElementById('formCadastro').addEventListener('submit', function(event) {
+document.getElementById('formCadastroVendedor').addEventListener('submit', function(event) {
     event.preventDefault();
 
     const nome = document.getElementById('nome').value;

@@ -39,12 +39,13 @@ function adicionarProduto() {
         <br><br>
 
         <label class="label" for="medida"> Medida: </label> <br>
-        <input class=input type="number" id="medida" name="medida" step=0.1> <br>
+        <input class=input type="number" id="medida" name="medida" step=0.1 placeholder="10,0 kg"> <br>
 
         <label class="label" for="produtoPreco">Preço:</label> <br>
-        <input class="input" type="number" id="produtoPreco"><br>
+        <input class="input" type="number" id="produtoPreco" step="0.1" placeholder="R$"><br>
 
-        label class="label" for="qtd">Quantidade:</label> <br>
+        <label class="label" for="qtd">Quantidade:</label> <br>
+        <input class="input" type="number" id="qtd" placeholder="100"> <br>
 
 
         <button type="submit" class="button" onclick="salvarProduto">Adicionar</button>
