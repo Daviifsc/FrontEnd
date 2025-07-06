@@ -1,3 +1,4 @@
+
 let formularioVisivel = false;
 
 function adicionarProduto() {
@@ -82,7 +83,7 @@ document.getElementById('formCadastroProduto').addEventListener("submit", functi
   salvarProduto.target.reset();
 });
 
-//      FUNÇÃO DE ENVIO DOS DADOS DA PUBLICAÇÃO AO BACK
+//      FUNÇÃO DE ENVIO DOS DADOS DA OFERTA AO BACK
 
 document.getElementById('formOferta').addEventListener('submit', function(salvarPublicação) {
     salvarPublicação.preventDefault();

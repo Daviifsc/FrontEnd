@@ -3,13 +3,13 @@ const version = 1;
 const cachename = 'app-fc-v' + version;
 
 const arquivos = [
-  './',
+  '../',
   '../HTML/home.html',
-  'main.js',
+  '../JS/main.js',
   'service-worker.js',
-  'manifest.json',
+  '../JS/manifest.json',
   '../CSS/style.css',
-  'dados.json',
+  '../JS/dados.json',
   '../IMAGENS/2149442335.jpg',
   '../IMAGENS/2149482552.jpg',
   '../IMAGENS/icon192.png',
