@@ -1,23 +1,25 @@
-
 const version = 1;
 const cachename = 'app-fc-v' + version;
 
 const arquivos = [
-  '../',
-  '../HTML/home.html',
-  '../JS/main.js',
+  'home.html',
+  'manifest.json',
   'service-worker.js',
-  '../JS/manifest.json',
-  '../CSS/style.css',
-  '../JS/dados.json',
-  '../IMAGENS/2149442335.jpg',
-  '../IMAGENS/2149482552.jpg',
-  '../IMAGENS/icon192.png',
-  '../IMAGENS/icon512.png',
-  '../IMAGENS/logo-3.png',
-  '../IMAGENS/manoel-gomes.jpg',
-  '../IMAGENS/organic-box.jpg',
-  '../IMAGENS/procurar.png',
+  'HTML/paginaCliente.html',
+  'HTML/paginaVendedor.html',
+  'JS/navegacaoSPA.js',
+  'JS/paginaVendedor.js',
+  'JS/main.js',
+  'JS/dados.json',
+  'CSS/style.css',
+  'CSS/paginaVendedor.css',
+  'IMAGENS/pote-mel.jpg',
+  'IMAGENS/sacos-trigo.jpg',
+  'IMAGENS/icone192.png',
+  'IMAGENS/icone512.png',
+  'IMAGENS/logo-3.png',
+  'IMAGENS/manoel-gomes.jpg',
+  'IMAGENS/organic-box.jpg',
 ];
 
 
@@ -26,9 +28,9 @@ self.addEventListener('install', function (event) {
     caches.open(cachename).then(function (cache) {
       return cache.addAll(arquivos);
     })
+    
   );
 });
-
 
 self.addEventListener('fetch', function (event) {
   event.respondWith(
@@ -46,7 +48,7 @@ self.addEventListener('fetch', function (event) {
             return response;
           })
           .catch(function () {
-            return caches.match('../HTML/home.html');
+            return caches.match('home.html');
           });
       }
     })

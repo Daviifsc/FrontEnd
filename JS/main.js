@@ -13,7 +13,7 @@ function navega(destino) {
 async function carregarDados() {
   try {
     // Fazendo a requisição para carregar o arquivo JSON
-    const resposta = await axios.get('../JS/dados.json'); // Caminho para o arquivo JSON
+    const resposta = await axios.get('./JS/dados.json'); // Caminho para o arquivo JSON
     const dadosPublicacoes = resposta.data;
 
     // Referência para o elemento da lista
@@ -75,7 +75,7 @@ async function carregarPubli(dados) {
   try {
     navega('publicacao');
 
-    const resposta = await axios.get('../JS/dados.json');
+    const resposta = await axios.get('JS/dados.json');
 
     const dadosPublicacoes = resposta.data;
 
@@ -173,7 +173,7 @@ window.onload = carregarDados;
 
 //Registra o serviceWorker da aplicação para cache de recursos offline
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('../JS/service-worker.js');
+  navigator.serviceWorker.register('/service-worker.js');
 }
 
 

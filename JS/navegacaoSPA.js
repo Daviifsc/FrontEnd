@@ -3,11 +3,11 @@ let tipoUsuario = 'vendedor'; // ou 'cliente'
 
 // Rotas nomeadas
 const rotas = {
-  home: 'home.html',
+  home: '/home.html',
   ofertas: 'HTML/ofertas.html',
   perfil: {
-    vendedor: 'paginaVendedor.html',
-    cliente: 'paginaCliente.html'
+    vendedor: '../HTML/paginaVendedor.html',
+    cliente: '../HTML/paginaCliente.html'
   }
 };
 

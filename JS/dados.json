@@ -7,7 +7,7 @@
     "lote": {
       "id": 1,
       "tempo": "5 dias",
-      "fotoProduto": "../IMAGENS/2149482552.jpg",
+      "fotoProduto": "../IMAGENS/organic-box.jpg",
       "descricao": "Boa safra",
       "postadoHa": "2 horas",
       "titulo": "Lote de produtos orgânicos variados",
@@ -37,7 +37,7 @@
     "lote": {
       "id": 1,
       "tempo": "7 dias",
-      "fotoProduto": "../IMAGENS/2149442335.jpg",
+      "fotoProduto": "../IMAGENS/pote-mel.jpg",
       "descricao": "Dia do Mel",
       "postadoHa": "1 dia",
       "titulo": "Melhor safra de mel",
@@ -62,7 +62,7 @@
     "lote": {
       "id": 1,
       "tempo": "7 dias",
-      "fotoProduto": "../IMAGENS/2149442335.jpg",
+      "fotoProduto": "../IMAGENS/pote-mel.jpg",
       "descricao": "Dia do Mel",
       "postadoHa": "1 dia",
       "titulo": "Melhor safra de mel",
