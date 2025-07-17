@@ -14,29 +14,38 @@
     <form class="formulario" id="formCadastroOferta">
         <legend>Cadastrar Publicação</legend>
 
-        <label class="label" for="titulo">Título:</label> <br>
-        <input type="text" name="titulo" class="input" id="titulo" placeholder="Coloque um titulo chamativo"> <br>
+        <label class="label" label="select-oferta">Oferta:</label><br>
+        <select class="input" id="select-oferta">
+          
+        </select><br>
 
-        <label class="label" for="descricao">Descrição:</label> <br>
-        <input type="text" name="descricao" class="input" id="descricao" placeholder="Descreva o que está anunciando"> <br>
+        <label class="label" for="select-tempo">Tempo de exposição</label>
+        <select class="input" id="select-tempo">
+            <option value="1">1 Dia</option>
+            <option value="2">2 Dias</option>
+            <option value="3" selected>3 Dias</option>
+            <option value="5">5 Dias</option>
+            <option value="7">7 Dias</option>
+        </select>
 
-        <label class="label" for="editarVendedor">Vendedor:</label> 
-        <button class="button" id="editarVendedor">Editar</button> <br>
+        <label class="label" for="data-inicio">Data de postagem</label>
+        <input class="input" type="date" id="data-inicio">
 
-        <label class="label" for="fone">Telefone:</label> <br>
-        <input type="tel" name="fone" class="input" id="telefone" placeholder="ex: (48) 1234-5678"> <br>
+        <label class="label" for="data-final">Data final de exposição</label>
+        <input class="input" type="date" id="data-final">
 
-        <label class="label" for="pix">Chave PIX:</label> <br>
-        <input type="text" name="pix" class="input" id="pix" placeholder="ex: 4812345678"> <br>
+        <label class="label" for="data-inicio-pagamento">Início do Pagamento</label>
+        <input class="input" type="date" id="data-inicio-pagamento" readonly>
 
-        <label class="label lbAddProd" for="btnAddProduto">Adicionar Produto</label>
-        <button type="button" class="button" id="btnAddProduto" onclick="adicionarProduto()"><i class="fa-solid fa-plus"></i></button>
-        <ol class="lista-produtos" id="lista-produtos">
-            
-        </ol>
+        <label class="label" for="data-fim-pagamento">Fim do Pagamento</label>
+        <input class="input" type="date" id="data-fim-pagamento">
 
-        <button type="submit" class="button" id="salvarPublicacao" onclick="salvarPublicacao">Salvar</button>
-        <button class="button" id="Publicar" onclick="publicar">Publicar</button>
+        <label class="label" for="select-local-retirada">CEP de Retirada:</label>
+        <select class="input" id="select-local-retirada">
+            <option selected disabled>Selecione um local</option>
+        </select>
+
+        <button type="submit" class="button" id="Publicar" onclick="publicar">Publicar</button>
     </form>
         
     <!--  FontAwesome Script-->

@@ -15,9 +15,9 @@ document.getElementById('formCadastroVendedor').addEventListener('submit', funct
     const nome = document.getElementById('nome').value;
     const cpf = document.getElementById('cpf').value;
     const email = document.getElementById('email').value;
-    const fone = document.getElementById('telefone').value;
-    const endereco = document.getElementById('endereco').value;
-    const regiao = document.getElementById('regDeAtuacao').value;
+    const telefone = document.getElementById('telefone').value;
+    const cep = document.getElementById('cep').value;
+    const regDeAtuacao = document.getElementById('regDeAtuacao').value;
     const pix = document.getElementById('pix').value;
     const senha = document.getElementById('senha').value;
     const confirmaSenha = document.getElementById('confirmaSenha').value;
@@ -34,7 +34,7 @@ document.getElementById('formCadastroVendedor').addEventListener('submit', funct
     mensagemErro.textContent = '';
 
     // Validação para campos vazios
-    if (!nome || !cpf || !email || !telefone || !endereco || !regDeAtuacao || !pix || !senha || !confirmaSenha) {
+    if (!nome || !cpf || !email || !telefone || !cep || !regDeAtuacao || !pix || !senha || !confirmaSenha) {
         mensagemErro.innerHTML = `Por favor, preencha todos os campos.`;
         return;
     }
@@ -57,7 +57,7 @@ document.getElementById('formCadastroVendedor').addEventListener('submit', funct
         return;
     }
 
-    const dados = { nome, cpf, email, telefone, endereco, regDeAtuacao, pix, senha };
+    const dados = { nome, cpf, email, telefone, cep, regDeAtuacao, pix, senha };
 
     fetch('http://localhost:8080/api/vendedores', {
         method: 'POST',
