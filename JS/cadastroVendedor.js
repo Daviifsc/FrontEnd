@@ -13,10 +13,11 @@ document.getElementById('formCadastroVendedor').addEventListener('submit', funct
     event.preventDefault();
 
     const nome = document.getElementById('nome').value;
-    const rg = document.getElementById('rg').value;
-    const fone = document.getElementById('fone').value;
+    const cpf = document.getElementById('cpf').value;
+    const email = document.getElementById('email').value;
+    const fone = document.getElementById('telefone').value;
     const endereco = document.getElementById('endereco').value;
-    const regiao = document.getElementById('regiao').value;
+    const regiao = document.getElementById('regDeAtuacao').value;
     const pix = document.getElementById('pix').value;
     const senha = document.getElementById('senha').value;
     const confirmaSenha = document.getElementById('confirmaSenha').value;
@@ -33,7 +34,7 @@ document.getElementById('formCadastroVendedor').addEventListener('submit', funct
     mensagemErro.textContent = '';
 
     // Validação para campos vazios
-    if (!nome || !rg || !fone || !endereco || !regiao || !pix || !senha || !confirmaSenha) {
+    if (!nome || !cpf || !email || !telefone || !endereco || !regDeAtuacao || !pix || !senha || !confirmaSenha) {
         mensagemErro.innerHTML = `Por favor, preencha todos os campos.`;
         return;
     }
@@ -56,9 +57,9 @@ document.getElementById('formCadastroVendedor').addEventListener('submit', funct
         return;
     }
 
-    const dados = { nome, rg, fone, endereco, regiao, pix, senha };
+    const dados = { nome, cpf, email, telefone, endereco, regDeAtuacao, pix, senha };
 
-    fetch('https://jsonplaceholder.typicode.com/posts', {
+    fetch('http://localhost:8080/api/vendedores', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(dados)

@@ -3,17 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Insira as informações da sua oferta</title>
-    <link rel="stylesheet" href="../CSS/cadastroOferta.css">
-    <link rel="stylesheet" href="../CSS/style.css">
+    <title>Publique sua oferta</title>
+    <link rel="stylesheet" href="../CSS/cadastroPublicacao.css">
     <link rel="stylesheet" href="../CSS/style.css">
 </head>
 <body>
     <header class="cabecalho">
-        <h1>Crie sua oferta</h1>
+        <h1>Publique sua oferta</h1>
     </header>
     <form class="formulario" id="formCadastroOferta">
-        <legend>Cadastrar Oferta</legend>
+        <legend>Cadastrar Publicação</legend>
 
         <label class="label" for="titulo">Título:</label> <br>
         <input type="text" name="titulo" class="input" id="titulo" placeholder="Coloque um titulo chamativo"> <br>
@@ -39,29 +38,10 @@
         <button type="submit" class="button" id="salvarPublicacao" onclick="salvarPublicacao">Salvar</button>
         <button class="button" id="Publicar" onclick="publicar">Publicar</button>
     </form>
-    
-   <!-- Container onde será injetado o form do produto -->
-    <div id="produtoContainer">
-        
-    </div>
-    <footer>   
-        <div id="conteudo"></div>
-        <nav class="bottom-nav">
-            <button >
-              <a href="../home.html"><i class="fa-solid fa-house"></i><br>Home</a>                
-            </button>
-            <button >
-                <a href="cadastroOferta.html"><i class="bi-tag"></i><br>Ofertas</a>
-            </button>
-            <button >
-                <a href="#"><i class="fa-solid fa-circle-user"></i><br>Perfil</a>
-            </button>
-        </nav>
-    </footer> 
         
     <!--  FontAwesome Script-->
     <script src="https://kit.fontawesome.com/f855660349.js" crossorigin="anonymous"></script>
 
-    <script src="../JS/cadastroOferta.js"></script>
+    <script src="../JS/cadastroPublicacao.js"></script>
 </body>
 </html>

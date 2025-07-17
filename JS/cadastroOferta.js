@@ -1,8 +1,51 @@
 
 let formularioVisivel = false;
+const container = document.getElementById('produtoContainer');
+
+//      FUNÇÃO DE ENVIO DOS DADOS DA OFERTA AO BACK
+document.addEventListener('DOMContentLoaded', function () {
+  document.getElementById('formOferta').addEventListener('submit', function(salvarPublicação) {
+      salvarPublicação.preventDefault();
+
+      const titulo = document.getElementById('titulo').value;
+      const descricao = document.getElementById('descricao').value;
+      const telefone = document.getElementById('fone').value;
+      const pix = document.getElementById('pix').value;
+      const listaProdutos = document.getElementById('listaProdutos').value;
+
+      // Validação para campos vazios
+      if (!titulo || !descricao || !telefone || !pix || !listaProdutos) {
+          alert('Por favor, preencha todos os campos.');
+          return;
+      }
+
+      const dados = { titulo, descricao, telefone, pix, listaProdutos };
+
+      fetch('http://localhost:8080/api/ofertas', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(dados)
+      })
+      .then(response => {
+          if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          return response.json();
+      })
+      .then(data => {
+          alert('Cadastro simulado com sucesso! ID: ' + data.id);
+          console.log(dados)
+
+      })
+      .catch(error => {
+          console.error('Erro:', error);
+          alert('Ocorreu um erro ao processar o cadastro.');
+      });
+  });
+});
 
 function adicionarProduto() {
-  const container = document.getElementById('produtoContainer');
+  
 
   if (!formularioVisivel) {
     const formProduto = `
@@ -24,19 +67,19 @@ function adicionarProduto() {
         <label class="label" label="tipoMedida"> Tipo de Medida: </label> <br>
 
         <label class="label" for="kg">Kg</label>
-        <input type="radio" id="kg" name="kg" value="kg">  
+        <input type="radio" id="kg" name="tipoMedida" value="kg" checked>  
         
         <label class="label" for="g">gramas</label>
-        <input type="radio" id="g" name="g" value="g">
+        <input type="radio" id="g" name="tipoMedida" value="g">
 
         <label class="label" for="litro">litro</label>
-        <input type="radio" id="litro" name="litro" value="litro">
+        <input type="radio" id="litro" name="tipoMedida" value="litro">
 
         <label class="label" for="ml">ml</label>
-        <input type="radio" id="ml" name="ml" value="ml">
+        <input type="radio" id="ml" name="tipoMedida" value="ml">
 
         <label class="label" for="unidade">unidade</label>
-        <input type="radio" id="unidade" name="unidade" value="un">
+        <input type="radio" id="unidade" name="tipoMedida" value="un">
         <br><br>
 
         <label class="label" for="medida"> Medida: </label> <br>
@@ -49,77 +92,74 @@ function adicionarProduto() {
         <input class="input" type="number" id="qtd" placeholder="100"> <br>
 
 
-        <button type="submit" class="button" onclick="salvarProduto">Adicionar</button>
+        <button type="button" class="button" onclick="salvarProduto()">Adicionar</button>
+        <button type="button" class="button" onclick="cancelar()">Cancelar</button>
       </form>
     `;
-    container.innerHTML = formProduto;
-    formularioVisivel = true;
+    container.innerHTML = formProduto; // Injeta o conteúdo do formulário a div "container" no html
+    formularioVisivel = true; // Muda a visibilidade do formulário
   }
-}
+} 
 
 //         FUNÇÃO PARA ADICIONAR PRODUTO AO FORM DE PUBLICAÇÃO
+function salvarProduto(){
+  document.getElementById("produtoContainer")
 
-document.getElementById('formCadastroProduto').addEventListener("submit", function (salvarProduto) {
-  salvarProduto.preventDefault();
+  const nome = document.getElementById("produtoNome").value;
+  const categoria = document.getElementById("categoria").value;
+  const tipoMedida = document.querySelector('input[name="tipoMedida"]:checked').value;
+  const medida = document.getElementById("medida").value;
+  const quantidade = document.getElementById("qtd").value;
+  const preco = document.getElementById("produtoPreco").value;
 
-  const nome = document.getElementById("nome-produto").value;
-  const categoria = document.getElementById("categoria-produto").value;
-  const medida = document.querySelector("input[name='medida']:checked");
-  const quantidade = document.getElementById("quantidade").value;
-  const preco = document.getElementById("preco").value;
-
-  if (!nome || !categoria || !medida || !quantidade || !preco) {
+  if (!nome || !categoria || !tipoMedida || !medida || !quantidade || !preco) {
     alert("Preencha todos os campos.");
     return;
   }
 
-  const texto = `${nome} - ${quantidade} ${medida.value} (${categoria}) - R$ ${parseFloat(preco).toFixed(2)}`;
+  const dados = `${nome} - ${quantidade} ${tipoMedida} ${medida} (${categoria}) - R$ ${parseFloat(preco).toFixed(2)}`;
 
-  const li = document.createElement("li");
-  li.textContent = texto;
-  document.getElementById("lista-produtos").appendChild(li);
+  fetch('http://localhost:8080/api/produtos', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(dados)
+      })
+      .then(response => {
+          if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          return response.json();
+      })
+      .then(data => {
+          alert('Cadastro simulado com sucesso! ID: ' + data.id);
+          console.log(dados)
 
-  // Limpa o formulário
-  salvarProduto.target.reset();
-});
+      })
+      .catch(error => {
+          console.error('Erro:', error);
+          alert('Ocorreu um erro ao processar o cadastro.');
+      });
 
-//      FUNÇÃO DE ENVIO DOS DADOS DA OFERTA AO BACK
+    const texto = `${nome} - ${medida} (${tipoMedida})  R$ ${parseFloat(preco).toFixed(2)}`;  
 
-document.getElementById('formOferta').addEventListener('submit', function(salvarPublicação) {
-    salvarPublicação.preventDefault();
+    const li = document.createElement("li");
+    li.textContent = texto;
+    document.getElementById("lista-produtos").appendChild(li);
 
-    const titulo = document.getElementById('titulo').value;
-    const descricao = document.getElementById('descricao').value;
-    const fone = document.getElementById('fone').value;
-    const pix = document.getElementById('pix').value;
-    const listaProdutos = document.getElementById('listaProdutos').value;
+    // Limpa o formulário
+    document.getElementById("formCadastroProduto").reset();
 
-    // Validação para campos vazios
-    if (!titulo || !descricao || !fone || !pix || !listaProdutos) {
-        alert('Por favor, preencha todos os campos.');
-        return;
-    }
+    // Fecha o formulário após adicionar
+    cancelar();
+};
 
-    const dados = { titulo, descricao, fone, pix, listaProdutos };
 
-    fetch('https://jsonplaceholder.typicode.com/posts', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(dados)
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
-    })
-    .then(data => {
-        alert('Cadastro simulado com sucesso! ID: ' + data.id);
-        console.log(dados)
 
-    })
-    .catch(error => {
-        console.error('Erro:', error);
-        alert('Ocorreu um erro ao processar o cadastro.');
-    });
-});
+//        FUNÇÃO PARA CANCELAR A ADIÇÃO DE PRODUTO A OFERTA
+function cancelar(){
+  const form = document.getElementById("formCadastroProduto");
+  if (form) {
+    form.remove(); // Remove o próprio formulário do DOM
+  }
+  formularioVisivel = false;
+}

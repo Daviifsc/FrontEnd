@@ -1,14 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 *{
     margin: 0;
     padding: 0;
     text-decoration: none;
     box-sizing: border-box;
-}
-
-.cabecalho{
-    text-align: center;
-    font-size: 1rem;
-    background-color: rgb(22, 214, 64);
 }
 
 .formulario{
@@ -44,8 +40,9 @@ legend{
     padding: 5px 2px;
     border: none;
     border-radius: 5px;
-    background-color: rgb(25, 211, 25);
+    background-color: #2e7d32;
     font-size: 0.9rem;
+    color: white;
 }
 
 /* botao add produto */
@@ -56,4 +53,44 @@ legend{
 
 .button a{
     color: black;
+}
+
+.lista-produtos {
+  list-style: none; /* Remove a numeração padrão */
+  padding: 0;
+  margin-top: 12px;
+  border-top: 1px solid #ccc;
+}
+
+.lista-produtos li {
+  background-color: #f0f4f8;
+  border: 1px solid #cbd5e0;
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-top: 10px;
+  font-size: 0.95rem;
+  color: #2d3748;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background-color 0.2s ease;
+}
+
+.lista-produtos li:hover {
+  background-color: #e2e8f0;
+}
+
+/* Se quiser adicionar botão de remover no futuro */
+.lista-produtos li .remover-btn {
+  background: none;
+  border: none;
+  color: #e53e3e;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+footer{
+    margin-top: 5rem;
 }

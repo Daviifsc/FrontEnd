@@ -18,8 +18,8 @@
     <!-- Colocando bordas para se localizar -->
     <link rel="stylesheet" href="CSS/style.css" />
 
-    <!-- Manifest -->
-    <link rel="manifest" href="manifest.json" />
+    <!-- Manifest 
+    <link rel="manifest" href="manifest.json" /> -->
 
     
   </head>
@@ -27,7 +27,7 @@
   <body d-flex flex-column min-vh-100 bg-light text-dark>
     <!-- Definindo div suprema -->
     <div
-      class="container flex-grow-1 d-flex flex-column"
+      class="container flex-grow-1 d-flex flex-column" style="padding-bottom: 5rem;"
     >
       <!-- Cabeçalho -->
       <header id="cabecalho">
@@ -166,7 +166,18 @@
       <!-- Rodapé -->
       <footer>  
         
-        <nav class="bottom-nav">
+          <nav class="bottom-nav">
+            <button >
+              <a href="/home.html"><i class="fa-solid fa-house"></i><br>Home</a>                
+            </button>
+            <button >
+                <a href="HTML/cadastroOferta.html"><i class="bi-tag"></i><br>Ofertas</a>
+            </button>
+            <button >
+                <a href="HTML/paginaVendedor.html"><i class="fa-solid fa-circle-user"></i><br>Perfil</a>
+            </button>
+        </nav> 
+        <!--
             <button onclick="carregarPagina('#')">
                 <i class="fa-solid fa-house"></i><br>Home
             </button>
@@ -177,7 +188,7 @@
                 <i class="fa-solid fa-circle-user"></i><br>Perfil
             </button>
         </nav> 
-        
+      -->
       </footer>
     </div>
 
@@ -201,7 +212,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <!-- Arquivo JS -->
-    <script src="../JS/main.js"></script>
-    <script src="../JS/navegacaoSPA.js"></script>
+    <script src="JS/main.js"></script>
+    <script src="JS/navegacaoSPA.js"></script>
   </body>
 </html>

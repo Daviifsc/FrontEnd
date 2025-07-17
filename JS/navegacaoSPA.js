@@ -6,19 +6,19 @@ const rotas = {
   home: '/home.html',
   ofertas: 'HTML/ofertas.html',
   perfil: {
-    vendedor: '../HTML/paginaVendedor.html',
-    cliente: '../HTML/paginaCliente.html'
+    vendedor: 'HTML/paginaVendedor.html',
+    cliente: 'HTML/paginaCliente.html'
   }
 };
 
 function carregarPagina(nomePagina) {
-  // Oculta cabeçalhos/fundos fixos da tela anterior
+  /* Oculta cabeçalhos/fundos fixos da tela anterior
   const containerVendedor = document.getElementById('vendedor-container');
   const cabecalho = document.getElementById('cabecalho');
 
   if (containerVendedor) containerVendedor.style.display = 'none';
   if (cabecalho) cabecalho.style.display = 'none';
-
+ */
   console.log("Tentando carregar:", nomePagina);
 
   // Seleciona o caminho correto com base no nome da página e tipo de usuário
@@ -43,9 +43,9 @@ function carregarPagina(nomePagina) {
       document.getElementById('conteudo').innerHTML = `<p style="color: red;">Erro ao carregar a página: ${error.message}</p>`;
     });
 }
-
+/*
 function mostrarVendedor() {
   document.getElementById('conteudo').innerHTML = '';
   document.getElementById('cabecalho').style.display = 'flex';
   document.getElementById('vendedor-container').style.display = 'block';
-}
+} */

@@ -7,8 +7,10 @@
     box-sizing: border-box;
 }
 
+
+
 .formulario{
-    margin: 3% 8%; 
+    margin: 3% 10%; 
     border: 1px solid #818181;
     box-shadow: 3px 3px 7px #0000007a;
     border-radius: 5%;
@@ -33,7 +35,7 @@ legend{
     border: 1px solid #929292;
 }
 
-.formulario > .button{
+.button{
     display: inline-block;
     margin: 10px;
     width: 100px;
@@ -41,21 +43,6 @@ legend{
     border: none;
     border-radius: 5px;
     background-color: #2e7d32;
-    color: white;
-    box-shadow: 1px 1px 3px #0000007a;
     font-size: 0.9rem;
-    font-weight: bold;
-}
-
-.formulario > .button:hover{
-    cursor: pointer;
-    background-color: #226e26;
-}
-
-#cadastroVendedor{
-    width: 140px;
-}
-
-.button a{
     color: white;
 }

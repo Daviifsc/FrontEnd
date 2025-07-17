@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página do Vendedor</title>
-    <link rel="stylesheet" href="../CSS/paginaVendedor.css">
+    <link rel="stylesheet" href="../CSS/paginaUser.css">
+    <link rel="stylesheet" href="../CSS/style.css">
 </head>
 <body>   
     <header class="cabecalho" id="cabecalho">
@@ -35,8 +36,9 @@
                 </div> -->
             </div> 
             <div class="opcoes-vendedor">
-                <button>Editar Perfil</button>             
-                <button>Cadastrar Oferta</button>
+                <button>Editar Perfil</button> 
+                <button>Ofertas</button>            
+                <button><a href="cadastroOferta.html" style="color: #ffffff;">Cadastrar Oferta</a></button>
                 <button onclick="exibirPublicacoes()">Publicações</button>
             </div> 
             
@@ -66,19 +68,19 @@
     <footer>   
         <div id="conteudo"></div>
         <nav class="bottom-nav">
-            <button onclick="carregarPagina('home')">
-                <i class="fa-solid fa-house"></i><br>Home
+            <button >
+              <a href="../home.html"><i class="fa-solid fa-house"></i><br>Home</a>                
             </button>
-            <button onclick="carregarPagina('ofertas')">
-                <i class="bi-tag"></i><br>Ofertas
+            <button >
+                <a href="cadastroOferta.html"><i class="bi-tag"></i><br>Ofertas</a>
             </button>
-            <button onclick="mostrarVendedor()">
-                <i class="fa-solid fa-circle-user"></i><br>Perfil
+            <button >
+                <a href="#"><i class="fa-solid fa-circle-user"></i><br>Perfil</a>
             </button>
         </nav>
     </footer>    
     <script src="https://kit.fontawesome.com/f855660349.js" crossorigin="anonymous"></script>
-    <script src="../JS/paginaVendedor.js"></script>
+    <script src="../JS/paginaUser.js"></script>
     <script src="../JS/navegacaoSPA.js"></script>
 </body>
 </html>

@@ -3,7 +3,7 @@ document.getElementById('formCadastro').addEventListener('submit', function(even
 
     const nome = document.getElementById('nome').value;
     const email = document.getElementById('email').value;
-    const fone = document.getElementById('fone').value;
+    const telefone = document.getElementById('telefone').value;
     const senha = document.getElementById('senha').value;
     const confirmaSenha = document.getElementById('confirmaSenha').value;
 
@@ -20,7 +20,7 @@ document.getElementById('formCadastro').addEventListener('submit', function(even
     mensagemErro.textContent = '';
 
     // Validação para campos vazios
-    if (!nome || !email || !fone || !senha || !confirmaSenha) {
+    if (!nome || !email || !telefone || !senha || !confirmaSenha) {
         mensagemErro.innerHTML = `Por favor, preencha todos os campos.`;
         return;
     }
@@ -44,9 +44,9 @@ document.getElementById('formCadastro').addEventListener('submit', function(even
         return;
     }
 
-    const dados = { nome, email, fone, senha };
+    const dados = { nome, email, telefone, senha };
 
-    fetch('https://jsonplaceholder.typicode.com/posts', {
+    fetch('http://localhost:8080/api/clientes', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(dados)
