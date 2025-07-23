@@ -1,3 +1,14 @@
+// Metodo para navegação das paginas
+document.addEventListener('DOMContentLoaded', () => {
+      const toggle = document.getElementById('menuToggle');
+      const menu = document.getElementById('menu');
+
+      toggle.addEventListener('click', () => {
+        menu.classList.toggle('open');
+      });
+    });
+
+
 // Variável ofertas inicializada como let (pode ser reatribuída)
 let ofertas = [
   { id: 1, titulo: "Produtos Orgânicos"},
@@ -38,33 +49,36 @@ document.addEventListener("DOMContentLoaded", carregarOfertas);
 //   Define as datas de exposição e pagamento
 document.addEventListener("DOMContentLoaded", () => {
   const selectTempo = document.getElementById("select-tempo");
-  const inputInicio = document.getElementById("data-inicio");
-  const inputFinal = document.getElementById("data-final");
-
-  const inputInicioPagamento = document.getElementById("data-inicio-pagamento");
+  const inputDataFinalExposicao = document.getElementById("data-final");
   const inputFimPagamento = document.getElementById("data-fim-pagamento");
+
+  let dataFinalExposicao = null;
 
   const formatarData = (data) => data.toISOString().split("T")[0];
 
+  // Atualiza a data final de exposição com base no tempo selecionado
   selectTempo.addEventListener("change", () => {
     const dias = parseInt(selectTempo.value);
-    const dataInicio = new Date(inputInicio.value || new Date());
+    const hoje = new Date();
+    dataFinalExposicao = new Date(hoje);
+    dataFinalExposicao.setDate(dataFinalExposicao.getDate() + dias);
 
-    const dataFinal = new Date(dataInicio);
-    dataFinal.setDate(dataFinal.getDate() + dias);
-    inputFinal.value = formatarData(dataFinal);
-
-    // Atualizar início do pagamento com a data final da exposição
-    inputInicioPagamento.value = formatarData(dataFinal);
-
-    // Limpar a data final do pagamento, para evitar dados incoerentes
-    inputFimPagamento.value = "";
+    inputDataFinalExposicao.value = formatarData(dataFinalExposicao);
+    inputFimPagamento.min = formatarData(dataFinalExposicao); // impede que o usuário selecione antes da exposição
   });
 
-  if (!inputInicio.value) {
-    inputInicio.value = formatarData(new Date());
-  }
+  // Impede o envio do formulário se a data de pagamento for inválida
+  document.getElementById("form-publicacao").addEventListener("submit", function (event) {
+    const fimPagamento = new Date(inputFimPagamento.value);
+    
+    if (dataFinalExposicao && fimPagamento < dataFinalExposicao) {
+      alert("A data final de pagamento não pode ser anterior à data final de exposição.");
+      event.preventDefault();
+    }
+  });
 });
+
+
 
 
 // CEP de teste (simulando valor cadastrado pelo vendedor)
