@@ -1,0 +1,10 @@
+[ 
+    {  
+        "id" : 1,
+        "nome" : "Manoel Junior",
+        "email" : "manoel@email.com",
+        "telefone" : 4805645618,
+        "senha" : "Senha.02",
+        "confirmaSenha" : "Senha.02"
+    }
+]

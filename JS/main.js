@@ -47,13 +47,13 @@ async function carregarDados() {
           <!-- Inferior -->
           <div class="d-flex flex-column mt-1">
             <div class="d-flex flex-row justify-content-around px-2 ">
-              <div class=""><i class="fa-solid fa-thumbs-up"></i></div>
+              <div class="botao-rede-social"><i class="fa-solid fa-thumbs-up"></i></div>
               <div class="">
-                <button type="button" onclick="carregarPubli(${publi.id})">
+                <button class="botao-participar" type="button" onclick="carregarPubli(${publi.id})">
                   Participar
                 </button>
               </div>
-              <div class=""><i class="fa-solid fa-share"></i></div>
+              <div class="botao-rede-social"><i class="fa-solid fa-share"></i></div>
             </div>
             <div class="px-3">
               <p>${publi.lote.descricao} </br>
@@ -122,26 +122,26 @@ async function carregarPubli(dados) {
               <div id="produtos" class="mb-2">
                 <!-- Iterando sobre os produtos -->
                 ${publi.lote.produto
-                  .map(
-                    (produto) => `
-                <div class="d-flex flex-row">
-                  <div class="">
-                    <p>${produto.nomeAlimento} (un) <span style="font-weight: bold;">R$ ${produto.preco} | ${produto.quantidade} disponíveis</span></p>
+              .map(
+                (produto, index) => `
+              <div class="d-flex flex-row item" data-preco="${produto.preco}" data-index="${index}" data-quantidade="${produto.quantidade}">
+                <div>
+                  <p>${produto.nomeAlimento} (un) <span style="font-weight: bold;">R$ ${produto.preco} | ${produto.quantidade} disponíveis</span></p>
+                </div>
+                <div class="d-flex align-items-center ms-2">
+                  <div class="d-flex flex-row">
+                    <button class="btn-menos math" data-index="${index}"><i class="fa-solid fa-minus"></i></button>
+                    <span class="qtd mx-2" id="qtd-${index}" style="font-size: 1.1rem; font-weight: 700; margin: 1rem 0;">0</span>
+                    <button class="btn-mais math" data-index="${index}"><i class="fa-solid fa-plus"></i></button>
                   </div>
-                  <div class="d-flex align-items-center">
-                    <div class="d-flex flex-row">
-                      <button><i class="fa-solid fa-minus"></i></button>
-                      <span>1</span>
-                      <button><i class="fa-solid fa-plus"></i></button>
-                    </div>
-                  </div> 
-                </div>`
-                  )
-                  .join('')}   
+                </div> 
+              </div>`
+              )
+              .join('')}
               </div>            
               <!-- Botão de Adicionar ao Carrinho -->
               <div class="d-flex justify-content-end">
-                <button><i class="fa-solid fa-cart-shopping"></i> R$ ${calcularTotal(
+                <button class="carrinho"><i class="fa-solid fa-cart-shopping"></i> R$ ${calcularTotal(
                   publi.lote.produto
                 )}</button>
               </div>
@@ -156,6 +156,47 @@ async function carregarPubli(dados) {
     });
   } catch (erro) {
     console.error('Erro ao carregar a publicação:', erro);
+  }
+}
+
+function carregarProdutos(idPubli) {
+  const items = document.querySelectorAll('.item');
+  const totalBtn = document.querySelector('.fa-cart-shopping').parentElement;
+
+  let quantidades = Array.from(items).map(() => 0);
+
+  items.forEach((item, index) => {
+    const preco = parseFloat(item.dataset.preco);
+    const qtdDisponivel = parseInt(item.dataset.quantidade);
+    const spanQtd = item.querySelector(`#qtd-${index}`);
+    const btnMais = item.querySelector('.btn-mais');
+    const btnMenos = item.querySelector('.btn-menos');
+
+    btnMais.addEventListener('click', () => {
+      if(quantidades[index] < qtdDisponivel){
+        quantidades[index]++;
+        spanQtd.textContent = quantidades[index];
+        atualizarTotal();
+      }
+      
+    });
+
+    btnMenos.addEventListener('click', () => {
+      if (quantidades[index] > 0) {
+        quantidades[index]--;
+        spanQtd.textContent = quantidades[index];
+        atualizarTotal();
+      }
+    });
+  });
+
+  function atualizarTotal() {
+    let total = 0;
+    quantidades.forEach((qtd, idx) => {
+      const preco = parseFloat(items[idx].dataset.preco);
+      total += preco * qtd;
+    });
+    totalBtn.innerHTML = `<i class="fa-solid fa-cart-shopping"></i> R$ ${total.toFixed(2)}`;
   }
 }
 

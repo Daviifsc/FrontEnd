@@ -17,7 +17,6 @@ document.getElementById('formCadastroVendedor').addEventListener('submit', funct
     const email = document.getElementById('email').value;
     const telefone = document.getElementById('telefone').value;
     const cep = document.getElementById('cep').value;
-    const regDeAtuacao = document.getElementById('regDeAtuacao').value;
     const pix = document.getElementById('pix').value;
     const senha = document.getElementById('senha').value;
     const confirmaSenha = document.getElementById('confirmaSenha').value;
@@ -34,7 +33,7 @@ document.getElementById('formCadastroVendedor').addEventListener('submit', funct
     mensagemErro.textContent = '';
 
     // Validação para campos vazios
-    if (!nome || !cpf || !email || !telefone || !cep || !regDeAtuacao || !pix || !senha || !confirmaSenha) {
+    if (!nome || !cpf || !email || !telefone || !cep  || !pix || !senha || !confirmaSenha) {
         mensagemErro.innerHTML = `Por favor, preencha todos os campos.`;
         return;
     }
@@ -57,7 +56,7 @@ document.getElementById('formCadastroVendedor').addEventListener('submit', funct
         return;
     }
 
-    const dados = { nome, cpf, email, telefone, cep, regDeAtuacao, pix, senha };
+    const dados = { nome, cpf, email, telefone, cep, pix, senha };
 
     fetch('http://localhost:8080/api/vendedores', {
         method: 'POST',

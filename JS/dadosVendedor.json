@@ -1,0 +1,13 @@
+[ 
+    {  
+        "id" : 1,
+        "nome" : "José Maria",
+        "cpf" : 12345678900,
+        "email" : "ze@email.com",
+        "telefone" : 4812345678,
+        "cep" : "88058001",
+        "pix" : "12345678900",
+        "senha" : "Senha.01",
+        "confirmaSenha" : "Senha.01"
+    }
+]
